@@ -9,5 +9,13 @@ class profile::django (
     pip        => true,
     virtualenv => true,
   }
+  
+  python::virtualenv {$venv_directory:
+    ensure     => present,
+    version    => 'system',
+    systempkgs => true,
+    distribute => true,
+    venv_dir   => $venv_tools_directory
+  }
 
 }
